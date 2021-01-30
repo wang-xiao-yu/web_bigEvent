@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>更换头像页面</title>
+    <!-- 1-导入layui的样式 -->
+    <link rel="stylesheet" href="/Day-1/assets/lib/layui/css/layui.css" />
+    <!-- 2-导入裁剪图片的插件的样式文件 -->
+    <link rel="stylesheet" href="/Day-1/assets/lib/cropper/cropper.css" />
+    <!-- 3- 导入自己的样式 -->
+    <link rel="stylesheet" href="/Day-1/assets/css/user/user_avatar.css" />
+
+
+
+</head>
+
+<body>
+    <!-- 卡片 面板区域 -->
+    <div class="layui-card">
+        <div class="layui-card-header">更换头像</div>
+        <div class="layui-card-body">
+            <!-- 第一行的图片裁剪和预览区域 -->
+            <div class="row1">
+                <!-- 图片裁剪区域 -->
+                <div class="cropper-box">
+                    <!-- 这个 img 标签很重要，将来会把它初始化为裁剪区域 -->
+                    <img id="image" src="/Day-1/assets/images/sample.jpg" />
+                </div>
+                <!-- 图片的预览区域 -->
+                <div class="preview-box">
+                    <div>
+                        <!-- 宽高为 100px 的预览区域 -->
+                        <div class="img-preview w100"></div>
+                        <p class="size">100 x 100</p>
+                    </div>
+                    <div>
+                        <!-- 宽高为 50px 的预览区域 -->
+                        <div class="img-preview w50"></div>
+                        <p class="size">50 x 50</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第二行的按钮区域 -->
+            <div class="row2">
+                <!-- 默认的文件选择框样式比较丑，所以我们定义这个结构，让其隐藏，给文件选择框指定可以上传的文件类型 -->
+                <!--accept="" 可以指定，允许用户选择什么类型的文件  -->
+                <input type="file" id="file" accept="image/png,image/jpeg">
+                <button type="button" class="layui-btn" id="btnChooseImage">上传</button>
+                <button type="button" class="layui-btn layui-btn-danger" id="btnUpLoad">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-导入layui的js文件 -->
+    <script src="/Day-1/assets/lib/layui/layui.all.js"></script>
+    <!-- 2-导入jquery的js文件 -->
+    <script src="/Day-1/assets/lib/jquery.js"></script>
+    <!-- 3 导入裁剪图片的插件的js相关文件 -->
+    <script src="/Day-1/assets/lib/cropper/Cropper.js"></script>
+    <script src="/Day-1/assets/lib/cropper/jquery-cropper.js"></script>
+
+    <!-- 4 导入baseAPI.js 拼接访问路径-->
+    <script src="/Day-1/assets/js/baseAPI.js"></script>
+    <!-- 5 导入自己的js -->
+    <script src="/Day-1/assets/js/user_avatar.js"></script>
+</body>
+
+</html>

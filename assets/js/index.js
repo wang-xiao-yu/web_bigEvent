@@ -31,7 +31,7 @@ $(function () {
 
 
 
-//1-获取用户的基本信息
+//1-获取用户的基本信息--不写在入口函数内，就是全局函数，方便子页面调用此函数
 function getUserInfo() {
   $.ajax({
     method: "get",
