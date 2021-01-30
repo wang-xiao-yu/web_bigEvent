@@ -84,28 +84,29 @@ $(function () {
 
     //4.监听登录表单的提交事件
     $('#form_login').submit(function (e) {
-        // 阻止默认提交行为
-        e.preventDefault()
+        // 4-1 阻止默认提交行为
+        e.preventDefault();
         $.ajax({
             // url: 'http://ajax.frontend.itheima.net/api/login',
             url:'/api/login',
             method: 'POST',
-            // 快速获取表单中的数据
+            // 4-2 快速获取表单中的数据
             data: $(this).serialize(),
             success: function (res) {
                 if (res.status !== 0) {
-                    return layer.msg('登录失败！')
+                    return layer.msg('登录失败！');
                 }
-                layer.msg('登录成功！')
-                // 将登录成功得到的 token 字符串，保存到 localStorage 中 ,用于有权限接口的身份认证
-                localStorage.setItem('token', res.token)
-                // 跳转到后台主页
-                location.href = '/Day-1/index.html'
+                // 4-3 请求成功之后提示用户：登录成功，保持token信息，跳转到后台主页
+                layer.msg('登录成功！');
+                // （1）将登录成功得到的 token 字符串，保存到 localStorage 中 ,用于有权限接口的身份认证
+                localStorage.setItem('token', res.token);
+                // （2）跳转到后台主页
+                location.href = '/Day-1/index.html';
             }
         })
     })
   
-
+// token 用来标识用户是否登录的令牌，后台的页面需要用户登录之后才能查阅，那么权限校验的机制也就出来了，需要检验权限的页面后台先判断请求头里面是否有token，以此来判断是否是登录状态
 
 
 
