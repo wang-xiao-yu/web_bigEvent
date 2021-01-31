@@ -45,6 +45,12 @@ $(function () {
                 layer.msg('更新密码成功！');//{status: 0, message: "更新密码成功！"}
                 //jq对象转为dom对象，调用重置方法
                 $('.layui-form')[0].reset();
+
+                //清空本地存储
+                localStorage.removeItem('token');
+                layui.layer.msg('已更新密码，请重新登录')
+                //跳转到登录首页,重新登录
+                window.parent.location.href = '/Day-1/login.html';
                 
               }
         })
