@@ -38,7 +38,7 @@ $.ajaxPrefilter(function (options) {
 
 	//1-再发起真正的ajax请求之前，统一拼接请求的根路径
 	options.url = 'http://ajax.frontend.itheima.net' + options.url;
-	console.log(options.url);
+	// console.log(options.url);
 
 
 
@@ -60,8 +60,8 @@ $.ajaxPrefilter(function (options) {
 	//(3-1)- 在调用有权限接口的时候，指定`complete`回调函数，这个回调函数不管成功还是失败都会调用;
 	options.complete = function (res) {
 		// console.log('执行了 complete 回调：')
-		console.log(res);
-		console.log(res.responseJSON);//拿到服务器响应回来的数据
+		// console.log(res);
+		// console.log(res.responseJSON);//拿到服务器响应回来的数据
 		// {status: 1, message: "身份认证失败！"}
 		//{status: 0, message: "获取用户基本信息成功！", data: {…}}
 		// (3-2)- 在回调里面判断 服务器返回的的状态是否等于 1，并且错误的信息是  "身份认证失败"，如果成立，那么就强制用户跳转到登录页; 

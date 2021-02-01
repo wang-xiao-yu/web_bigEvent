@@ -42,9 +42,12 @@ $(function () {
                 }
 
                 // 如果更新成功，重置一下表单内容
-                layer.msg('更新密码成功！');//{status: 0, message: "更新密码成功！"}
+                // layer.msg('更新密码成功！');//{status: 0, message: "更新密码成功！"}
                 //jq对象转为dom对象，调用重置方法
                 $('.layui-form')[0].reset();
+                localStorage.removeItem('token');
+                layer.msg('更新密码成功！，请重新登录！');
+                window.parent.location.href='/Day-1/login.html';
                 
               }
         })
